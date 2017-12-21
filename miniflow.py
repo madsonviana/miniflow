@@ -40,21 +40,21 @@ class Linear(Node):
     def __init__(self, inputs, weights, bias):
         Node.__init__(self, [inputs, weights, bias])
 
-        # NOTE: The weights and bias properties here are not
-        # numbers, but rather references to other nodes.
-        # The weight and bias values are stored within the
-        # respective nodes.
-
     def forward(self):
-        """
-        Set self.value to the value of the linear function output.
-
-        Your code goes here!
-        """
         inputs = self.inbound_nodes[0].value
         weights = self.inbound_nodes[1].value
         bias = self.inbound_nodes[2].value
         self.value = np.dot(inputs, weights) + bias
+
+class Sigmoid(Node):
+    def __init__(self, node):
+        Node.__init__(self, [node])
+
+    def _sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+
+    def forward(self):
+        self.value = self._sigmoid(self.inbound_nodes[0].value)
 
 
 def topological_sort(feed_dict):
