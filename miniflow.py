@@ -54,8 +54,7 @@ class Linear(Node):
         inputs = self.inbound_nodes[0].value
         weights = self.inbound_nodes[1].value
         bias = self.inbound_nodes[2].value
-        inputs_dot_weights = map((lambda i, w: i * w), inputs, weights)
-        self.value = reduce((lambda x, y: x + y), inputs_dot_weights) + bias
+        self.value = np.dot(inputs, weights) + bias
 
 
 def topological_sort(feed_dict):
