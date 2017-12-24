@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 This network feeds the output of a linear transform
 to the sigmoid function.
@@ -9,6 +11,9 @@ Feel free to play around with this network, too!
 
 import numpy as np
 from miniflow import *
+from nodes.input import Input
+from nodes.linear import Linear
+from nodes.sigmoid import Sigmoid
 
 X, W, b = Input(), Input(), Input()
 

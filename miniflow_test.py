@@ -1,6 +1,9 @@
-import unittest
-from miniflow import Node, Input, Add
+# -*- coding: utf-8 -*-
 
+import unittest
+from nodes.node import Node
+from nodes.add import Add
+from nodes.input import Input
 class TestNodes(unittest.TestCase):
     """
     Classe de teste para implementação dos nós da rede neural
